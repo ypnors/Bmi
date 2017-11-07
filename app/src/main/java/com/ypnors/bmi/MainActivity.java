@@ -10,12 +10,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     String s=new String("abc");
-    View.OnClickListener listener=new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
 
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +18,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button bHelp = (Button) findViewById(R.id.b_help);
         bHelp.setOnClickListener(listener);
+        View.OnClickListener listener=new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("BMI說明")
+                        .setMessage("體重/身高的平方")
+                        .setPositiveButton("ok",null)
+                        .show();
+
+            }
+        };
 
     }
     public void bmi(View view){
