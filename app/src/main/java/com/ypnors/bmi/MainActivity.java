@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    String s=new String("abc");
+    String s = new String("abc");
 
 
     @Override
@@ -18,33 +18,45 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button bHelp = (Button) findViewById(R.id.b_help);
         bHelp.setOnClickListener(listener);
-        View.OnClickListener listener=new View.OnClickListener() {
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("BMI說明")
                         .setMessage("體重/身高的平方")
-                        .setPositiveButton("ok",null)
+                        .setPositiveButton("ok", null)
                         .show();
 
             }
         };
-
     }
-    public void bmi(View view){
-       // System.out.println("what???");
-        Log.d("MainActivity","testing bmi method");
-        EditText edWeight=(EditText) findViewById(R.id.ed_weight);
-        EditText edHeight=(EditText) findViewById(R.id.ed_height);
-        float weight =Float.parseFloat(edWeight.getText().toString());
-        float height =Float.parseFloat(edHeight.getText().toString());
-        float bmi=weight/(height*height);
+
+
+    public void bmi(View view) {
+        // System.out.println("what???");
+        Log.d("MainActivity", "testing bmi method");
+        EditText edWeight = (EditText) findViewById(R.id.ed_weight);
+        EditText edHeight = (EditText) findViewById(R.id.ed_height);
+        float weight = Float.parseFloat(edWeight.getText().toString());
+        float height = Float.parseFloat(edHeight.getText().toString());
+        float bmi = weight / (height * height);
         new AlertDialog.Builder(this)
-                .setMessage(getString(R.string.your_bmi_is)+bmi)
+                .setMessage(getString(R.string.your_bmi_is) + bmi)
                 .setTitle(R.string.my_title)
-                .setPositiveButton(R.string.ok,null)
+                .setPositiveButton(R.string.ok, null)
                 .show();
-        Log.d("MainActivity",String.valueOf(bmi));
+        Log.d("MainActivity", String.valueOf(bmi));
+
+
+
+        if (bmi < 20) {
+            new AlertDialog.Builder(this)
+                    .setMessage("請多吃點")
+                    .setPositiveButton("ok", null)
+                    .show();
+        }
     }
 
 }
+
+
