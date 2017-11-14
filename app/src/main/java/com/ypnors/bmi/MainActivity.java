@@ -47,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
                 .show();
         Log.d("MainActivity", String.valueOf(bmi));
 
+        if(height>3){
+            new AlertDialog.Builder(this)
+                    .setMessage("身高單位應為公尺")
+                    .setPositiveButton("ok",null)
+                    .show();
+        }
 
 
         if (bmi < 20) {
