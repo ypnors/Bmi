@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
     public void bmi(View view) {
         // System.out.println("what???");
         Log.d("MainActivity", "testing bmi method");
-        EditText edWeight = (EditText) findViewById(R.id.ed_weight);
-        EditText edHeight = (EditText) findViewById(R.id.ed_height);
+
+
+
         float weight = Float.parseFloat(edWeight.getText().toString());
         float height = Float.parseFloat(edHeight.getText().toString());
         float bmi = weight / (height * height);
